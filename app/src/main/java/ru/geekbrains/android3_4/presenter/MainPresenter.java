@@ -49,7 +49,7 @@ public class MainPresenter extends MvpPresenter<MainView>
                             .observeOn(mainThreadShceduler)
                             .subscribe(repos -> {
                                 Timber.d(user.getReposUrl());
-                                getViewState().loadReposList(repos.getRepos());
+                                getViewState().loadReposList(repos);
                             }, throwable -> {
                                 Timber.e(throwable, "Failed to get repos");
                             });

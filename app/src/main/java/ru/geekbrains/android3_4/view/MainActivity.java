@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import ru.geekbrains.android3_4.R;
+import ru.geekbrains.android3_4.model.entity.Repository;
 import ru.geekbrains.android3_4.model.image.IImageLoader;
 import ru.geekbrains.android3_4.model.image.android.GlideImageLoader;
 import ru.geekbrains.android3_4.model.image.android.PicassoImageLoader;
@@ -66,8 +67,12 @@ public class MainActivity extends MvpAppCompatActivity implements MainView
     }
 
     @Override
-    public void loadReposList(List<String> repos) {
-        ArrayAdapter<String> adapterSimple = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, repos);
+    public void loadReposList(List<Repository> repos) {
+        List<String> reposList = new ArrayList<>();
+        for (Repository repo: repos) {
+            reposList.add(repo.getName());
+        }
+        ArrayAdapter<String> adapterSimple = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reposList);
         reposListView.setAdapter(adapterSimple);
     }
 

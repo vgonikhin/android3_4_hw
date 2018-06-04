@@ -1,9 +1,11 @@
 package ru.geekbrains.android3_4.model.repo;
 
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import ru.geekbrains.android3_4.model.api.ApiHolder;
-import ru.geekbrains.android3_4.model.entity.Repos;
+import ru.geekbrains.android3_4.model.entity.Repository;
 import ru.geekbrains.android3_4.model.entity.User;
 
 public class UsersRepo
@@ -13,7 +15,7 @@ public class UsersRepo
         return ApiHolder.getApi().getUser(username);
     }
 
-    public Observable<Repos> getRepos(String url)
+    public Observable<List<Repository>> getRepos(String url)
     {
         return ApiHolder.getApi().getRepos(url);
     }
