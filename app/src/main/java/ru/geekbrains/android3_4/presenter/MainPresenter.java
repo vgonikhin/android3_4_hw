@@ -43,7 +43,6 @@ public class MainPresenter extends MvpPresenter<MainView>
                 .observeOn(mainThreadShceduler)
                 .subscribe(user -> {
 
-                    //TODO: получить и отобразить список репозиториев пользователя
                     Timber.d(user.getReposUrl());
                     usersRepo.getRepos(user.getReposUrl())
                             .subscribeOn(Schedulers.io())

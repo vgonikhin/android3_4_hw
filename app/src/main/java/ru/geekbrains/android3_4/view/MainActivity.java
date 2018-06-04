@@ -67,11 +67,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView
 
     @Override
     public void loadReposList(List<String> repos) {
-        List<String> list= new ArrayList<>();
-        list.add("repo1");
-        list.add("repo2");
-        list.add("repo3");
-        ArrayAdapter<String> adapterSimple = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        ArrayAdapter<String> adapterSimple = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, repos);
         reposListView.setAdapter(adapterSimple);
     }
 
